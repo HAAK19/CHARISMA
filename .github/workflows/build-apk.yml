@@ -37,14 +37,13 @@ jobs:
 
       - name: Build React application
         run: npm run build
-
-            - name: Configure Capacitor
-        run: |
-          echo '{"appId":"com.haak19.charisma","appName":"CHARISMA","webDir":"dist"}' > capacitor.config.json
+        
+      - name: Configure Capacitor
+        run: npx cap init CHARISMA com.haak19.charisma --web-dir dist
 
       - name: Create Android project
         run: npx cap add android
-
+    
       - name: Build APK
         run: |
           cd android
