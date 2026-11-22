@@ -38,11 +38,12 @@ jobs:
       - name: Build React application
         run: npm run build
 
+            - name: Configure Capacitor
+        run: |
+          echo '{"appId":"com.haak19.charisma","appName":"CHARISMA","webDir":"dist"}' > capacitor.config.json
+
       - name: Create Android project
         run: npx cap add android
-
-      - name: Sync Android project
-        run: npx cap sync android
 
       - name: Build APK
         run: |
