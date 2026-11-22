@@ -1,0 +1,6 @@
+{
+  "name": "CHARISMA",
+  "description": "CHARISMA — Beyond Messaging. Offline-first, end-to-end encrypted local communication and privacy platform with Arabic RTL and English LTR support.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": []
+}

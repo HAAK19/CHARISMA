@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: system-ui, -apple-system, 'Segoe UI', 'Geeza Pro', 'Tahoma', sans-serif;
+    --font-sans: system-ui, -apple-system, 'Segoe UI', 'Geeza Pro', 'Tahoma', sans-serif;
+    --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+    --charisma-accent: #00E5FF;
+    --charisma-secondary: #9D4EDD;
+    --charisma-accent-bg: #00E5FF;
+    --charisma-font-scale: 1;
+    --charisma-btn-radius: 12px;
+    --charisma-surface-opacity: 0.96;
+    --charisma-surface-shadow: 0 6px 20px -4px rgba(2, 6, 23, 0.25);
+    --charisma-icon-stroke: 1.75;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    font-size: calc(16px * var(--charisma-font-scale));
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  button svg {
+    stroke-width: var(--charisma-icon-stroke);
+  }
+}
+
+/* Theme Studio dynamic icon, button & motion modes */
+[data-btn-style='pill'] button:not([data-studio-fixed]),
+[data-btn-style='pill'] a.charisma-btn {
+  border-radius: 9999px !important;
+}
+
+[data-btn-style='sharp'] button:not([data-studio-fixed]),
+[data-btn-style='sharp'] a.charisma-btn {
+  border-radius: 4px !important;
+}
+
+[data-btn-style='glass'] button:not([data-studio-fixed]) {
+  backdrop-filter: blur(10px);
+}
+
+[data-icon-style='duotone'] svg {
+  fill: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+[data-anim='off'] *,
+[data-anim='off'] *::before,
+[data-anim='off'] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
